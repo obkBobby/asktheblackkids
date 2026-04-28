@@ -31,22 +31,18 @@
     .container {
       width: 100%;
       max-width: 520px;
-      text-align: left;
-    }
-
-    .micro {
-      font-size: 22px;
-      font-style: italic;
-      color: var(--muted);
-      margin-bottom: 10px;
+      margin: 0 auto;
+      text-align: center;
     }
 
     .headline {
-      font-size: 54px;
+      font-size: clamp(40px, 9vw, 54px);
       line-height: 1;
       font-weight: 800;
       letter-spacing: -1px;
       margin-bottom: 20px;
+      white-space: nowrap;
+      overflow-wrap: normal;
     }
 
     .context {
@@ -56,15 +52,20 @@
     }
 
     .cta {
-      display: inline-block;
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      width: min(100%, 460px);
       text-decoration: none;
       background: var(--accent);
       color: white;
-      padding: 16px 22px;
+      padding: 22px 36px;
       border-radius: 999px;
-      font-weight: 600;
-      font-size: 16px;
-      transition: 0.2s ease;
+      font-weight: 800;
+      font-size: 24px;
+      letter-spacing: 0.03em;
+      box-shadow: 0 22px 40px rgba(255, 95, 162, 0.28);
+      transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
     }
 
     .cta:hover {
@@ -81,6 +82,7 @@
       margin-top: 40px;
       font-size: 12px;
       color: #999;
+      text-align: center;
     }
 
   </style>
@@ -90,26 +92,16 @@
 
   <div class="container">
 
-    <div class="micro">what had happened was…</div>
-
     <div class="headline">
-      tell us what happened.
-    </div>
-
-    <div class="context">
-      real stories. real advice. featured on the podcast.
+      what had happened was...
     </div>
 
     <a class="cta" href="YOUR_TALLY_LINK_HERE">
-      submit your story
+      share your story
     </a>
 
-    <div class="note">
-      voice notes are more likely to be featured 🎤
-    </div>
-
     <div class="footer">
-      Only Black Kids in the Class
+      <a href="https://onlyblackkids.com/">Only Black Kids in the Class</a>
     </div>
 
   </div>
