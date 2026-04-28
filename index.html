@@ -1,103 +1,287 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ask The Black Kids</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ask The Black Kids</title>
+  <style>
+    :root {
+      --espresso: #2b1d16;
+      --coffee: #5a3b2e;
+      --latte: #efe1cf;
+      --cream: #fff7eb;
+      --blush: #ff5fa2;
+      --hotpink: #ff2f8f;
+      --mint: #9ff3d4;
+      --butter: #ffe589;
+      --ink: #14100e;
+    }
 
-<style>
-  body {
-    margin: 0;
-    font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", sans-serif;
-    background-color: #F5EFE7; /* beige */
-    color: #1A1A1A;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-  }
+    * { box-sizing: border-box; }
 
-  .container {
-    max-width: 800px;
-    padding: 20px;
-  }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 8% 12%, rgba(255, 95, 162, .32), transparent 22%),
+        radial-gradient(circle at 86% 18%, rgba(159, 243, 212, .55), transparent 25%),
+        radial-gradient(circle at 75% 84%, rgba(255, 229, 137, .50), transparent 25%),
+        linear-gradient(135deg, var(--cream), var(--latte));
+      overflow-x: hidden;
+    }
 
-  .headline-small {
-    font-size: 32px;
-    font-weight: 400;
-    font-style: italic;
-    color: #6B4F3A; /* coffee brown */
-  }
+    .noise {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      opacity: .08;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.75' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    }
 
-  .headline-main {
-    font-size: 72px;
-    font-weight: 800;
-    line-height: 0.95;
-    margin: 10px 0;
-  }
+    .wrap {
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      padding: 32px 20px;
+    }
 
-  .highlight {
-    color: #FF5FA2; /* pink accent */
-  }
+    .card {
+      position: relative;
+      width: min(1120px, 100%);
+      min-height: 620px;
+      border: 3px solid var(--espresso);
+      background: rgba(255, 247, 235, .84);
+      border-radius: 34px;
+      box-shadow: 16px 16px 0 var(--espresso);
+      padding: clamp(26px, 5vw, 72px);
+      overflow: hidden;
+    }
 
-  .subtext {
-    font-size: 18px;
-    margin-top: 20px;
-    color: #444;
-  }
+    .ticker {
+      position: absolute;
+      top: 28px;
+      right: -72px;
+      rotate: 12deg;
+      background: var(--espresso);
+      color: var(--cream);
+      padding: 12px 110px;
+      font-weight: 900;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      font-size: 13px;
+      white-space: nowrap;
+    }
 
-  .cta {
-    margin-top: 40px;
-  }
+    .badge {
+      display: inline-flex;
+      gap: 8px;
+      align-items: center;
+      background: var(--mint);
+      border: 2px solid var(--espresso);
+      border-radius: 999px;
+      padding: 10px 16px;
+      font-weight: 900;
+      box-shadow: 5px 5px 0 var(--espresso);
+      margin-bottom: 34px;
+    }
 
-  .cta a {
-    text-decoration: none;
-    background-color: #1A1A1A;
-    color: white;
-    padding: 16px 28px;
-    font-size: 18px;
-    border-radius: 999px;
-    transition: 0.2s ease;
-  }
+    .eyebrow {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(30px, 6vw, 78px);
+      line-height: .82;
+      font-style: italic;
+      font-weight: 400;
+      color: var(--coffee);
+      margin: 0 0 -6px;
+      letter-spacing: -.055em;
+    }
 
-  .cta a:hover {
-    background-color: #FF5FA2;
-  }
+    h1 {
+      max-width: 950px;
+      margin: 0;
+      font-size: clamp(58px, 12vw, 158px);
+      line-height: .78;
+      letter-spacing: -.085em;
+      font-weight: 950;
+      text-transform: lowercase;
+    }
 
-  .note {
-    margin-top: 12px;
-    font-size: 14px;
-    color: #666;
-  }
+    .pop {
+      color: var(--hotpink);
+      text-shadow: 5px 5px 0 var(--espresso);
+      letter-spacing: -.075em;
+    }
 
-</style>
+    .subhead {
+      max-width: 760px;
+      margin: 34px 0 0;
+      font-size: clamp(20px, 3vw, 34px);
+      line-height: 1.03;
+      font-weight: 850;
+      letter-spacing: -.035em;
+      color: var(--espresso);
+    }
+
+    .subhead span {
+      background: var(--butter);
+      padding: 0 .2em;
+      border-radius: 10px;
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      align-items: center;
+      margin-top: 38px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 62px;
+      padding: 18px 28px;
+      border: 3px solid var(--espresso);
+      border-radius: 999px;
+      background: var(--hotpink);
+      color: #fff;
+      text-decoration: none;
+      font-size: 20px;
+      font-weight: 950;
+      letter-spacing: -.02em;
+      box-shadow: 8px 8px 0 var(--espresso);
+      transition: transform .15s ease, box-shadow .15s ease;
+    }
+
+    .button:hover {
+      transform: translate(4px, 4px);
+      box-shadow: 4px 4px 0 var(--espresso);
+    }
+
+    .microcopy {
+      max-width: 330px;
+      font-size: 15px;
+      line-height: 1.25;
+      font-weight: 750;
+      color: var(--coffee);
+    }
+
+    .prompt-stack {
+      position: absolute;
+      right: 42px;
+      bottom: 42px;
+      width: min(360px, 36vw);
+      display: grid;
+      gap: 12px;
+    }
+
+    .prompt {
+      border: 2px solid var(--espresso);
+      border-radius: 18px;
+      padding: 14px 16px;
+      background: var(--cream);
+      box-shadow: 6px 6px 0 var(--espresso);
+      font-size: 15px;
+      font-weight: 900;
+      rotate: -2deg;
+    }
+
+    .prompt:nth-child(2) {
+      background: var(--mint);
+      rotate: 2deg;
+      margin-left: 28px;
+    }
+
+    .prompt:nth-child(3) {
+      background: var(--butter);
+      rotate: -1deg;
+      margin-left: 5px;
+    }
+
+    .spark {
+      position: absolute;
+      width: 90px;
+      height: 90px;
+      background: var(--mint);
+      border: 3px solid var(--espresso);
+      border-radius: 28px;
+      rotate: 16deg;
+      top: 120px;
+      right: 145px;
+      box-shadow: 8px 8px 0 var(--espresso);
+      display: grid;
+      place-items: center;
+      font-size: 38px;
+    }
+
+    .footerline {
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      padding: 13px 24px;
+      background: var(--espresso);
+      color: var(--cream);
+      font-size: 13px;
+      font-weight: 900;
+      letter-spacing: .05em;
+      text-transform: uppercase;
+      overflow: hidden;
+      white-space: nowrap;
+    }
+
+    @media (max-width: 850px) {
+      .card {
+        min-height: auto;
+        padding-bottom: 86px;
+        box-shadow: 10px 10px 0 var(--espresso);
+      }
+
+      .ticker, .spark, .prompt-stack { display: none; }
+
+      h1 { font-size: clamp(62px, 20vw, 104px); }
+
+      .subhead { font-size: 24px; }
+
+      .button { width: 100%; }
+
+      .microcopy { max-width: none; }
+    }
+  </style>
 </head>
-
 <body>
+  <div class="noise"></div>
 
-<div class="container">
+  <main class="wrap">
+    <section class="card" aria-label="Ask The Black Kids submission page">
+      <div class="ticker">Class is in session • submit the story • class is in session</div>
+      <div class="spark">🎤</div>
 
-  <div class="headline-small">
-    alright...
-  </div>
+      <div class="badge">🏫 Ask The Black Kids</div>
 
-  <div class="headline-main">
-    ask the black kids <span class="highlight">your problem.</span>
-  </div>
+      <p class="eyebrow">alright...</p>
+      <h1>what <span class="pop">happened?</span></h1>
 
-  <div class="subtext">
-    Got a story? Need advice? Or just messy?
-  </div>
+      <p class="subhead">
+        Got a story? Need advice? Or is it just <span>messy enough</span> for the class?
+      </p>
 
-  <div class="cta">
-    <a href="YOUR_TALLY_LINK_HERE">Submit Your Story</a>
-  </div>
+      <div class="actions">
+        <a class="button" href="YOUR_TALLY_LINK_HERE">Submit Your Story</a>
+        <div class="microcopy">Anonymous or named. Text is cool. Voice notes hit different.</div>
+      </div>
 
-  <div class="note">
-    Anonymous or named. Voice notes hit different 🎤
-  </div>
+      <div class="prompt-stack" aria-hidden="true">
+        <div class="prompt">“Tell us what really happened.”</div>
+        <div class="prompt">“Need advice? We got you.”</div>
+        <div class="prompt">“If it’s messy, bring it to class.”</div>
+      </div>
 
-</div>
-
+      <div class="footerline">Only Black Kids in the Class • Ask the Black Kids • Classmates welcome</div>
+    </section>
+  </main>
 </body>
 </html>
