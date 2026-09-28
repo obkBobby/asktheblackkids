@@ -1,0 +1,6 @@
+{
+  "name": "asktheblackkids",
+  "private": true,
+  "scripts": { "test": "node --test tests/*.test.cjs", "preview": "python3 -m http.server 8768 --bind 127.0.0.1" },
+  "devDependencies": { "playwright": "1.62.1" }
+}

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ask the Black Kids</title>
+  <meta name="description" content="Bring your relationship question to Ask the Black Kids. Join us live or submit your question to the podcast.">
+  <link rel="stylesheet" href="/live/live.css">
+  <script src="/live/live.js" defer></script>
+</head>
+<body>
+  <main>
+    <header><h1>Ask the <span>Black Kids</span></h1></header>
+    <section id="live-form" hidden aria-label="Join live">
+      <label class="question-label" for="question">What's your relationship question?</label>
+      <p id="question-help">Write one clear question you can read when we bring you on. We'll ask for the details.</p>
+      <textarea id="question" rows="3" required aria-describedby="question-help" autocomplete="off"></textarea>
+      <label class="consent" for="consent">
+        <input id="consent" type="checkbox" autocomplete="off">
+        <span>I’m 18 or older and agree to appear live and be recorded for the podcast and social clips.</span>
+      </label>
+      <button id="join" type="button" disabled aria-describedby="status">Join Zoom</button>
+      <p id="status" role="status"></p>
+      <p class="instructions">Camera optional. Listen through Zoom only; mute the livestream.</p>
+      <p class="watch" hidden><a id="watch">Watch the live show</a></p>
+    </section>
+    <section id="offline">
+      <p class="intro">Got a relationship question? Send it to the podcast.</p>
+      <p id="next-event" hidden></p>
+    </section>
+    <footer><a id="submit" class="primary" href="https://onlyblackkids.com/pages/ask-obk">Submit your question to the podcast</a></footer>
+    <noscript><p class="instructions">JavaScript is needed to check live availability. You can still submit your question to the podcast.</p></noscript>
+  </main>
+</body>
+</html>

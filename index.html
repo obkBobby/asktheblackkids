@@ -1,114 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Ask The Black Kids</title>
-
-  <style>
-    :root {
-      --bg: #F5EFE7;
-      --text: #1A1A1A;
-      --muted: #6B6B6B;
-      --accent: #FF2E88;
-      --accent-soft: #FFE4EF;
-    }
-
-    * { box-sizing: border-box; }
-
-    body {
-      margin: 0;
-      font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
-      padding: 20px;
-    }
-
-    .container {
-      width: 100%;
-      max-width: 520px;
-      margin: 0 auto;
-      text-align: center;
-    }
-
-    .headline {
-      font-size: clamp(40px, 9vw, 54px);
-      line-height: 1;
-      font-weight: 800;
-      letter-spacing: -1px;
-      margin-bottom: 20px;
-      white-space: nowrap;
-      overflow-wrap: normal;
-    }
-
-    .headline .highlight {
-      color: #FF5FA2;
-    }
-
-    .context {
-      font-size: 16px;
-      color: var(--muted);
-      margin-bottom: 30px;
-    }
-
-    .cta {
-      display: inline-flex;
-      justify-content: center;
-      align-items: center;
-      width: min(100%, 460px);
-      text-decoration: none;
-      background: var(--accent);
-      color: white;
-      padding: 22px 36px;
-      border-radius: 999px;
-      font-weight: 800;
-      font-size: 24px;
-      letter-spacing: 0.03em;
-      box-shadow: 0 22px 40px rgba(255, 95, 162, 0.28);
-      transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
-    }
-
-    .cta:hover {
-      background: #e64c8f;
-    }
-
-    .note {
-      margin-top: 12px;
-      font-size: 14px;
-      color: var(--muted);
-    }
-
-    .footer {
-      margin-top: 40px;
-      font-size: 12px;
-      color: #999;
-      text-align: center;
-    }
-
-  </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ask the Black Kids</title>
+  <meta name="description" content="Bring your relationship question to Ask the Black Kids. Join us live or submit your question to the podcast.">
+  <link rel="stylesheet" href="/live/live.css">
+  <script src="/live/live.js" defer></script>
 </head>
-
 <body>
-
-  <div class="container">
-
-    <div class="headline">
-      what had <span class="highlight">happened</span> was...
-    </div>
-
-    <a class="cta" href="https://onlyblackkids.com/pages/ask-the-black-kids-in-progress">
-      submit to the podcast
-    </a>
-
-    <div class="footer">
-      <a href="https://onlyblackkids.com/">Only Black Kids in the Class</a>
-    </div>
-
-  </div>
-
+  <main>
+    <header><h1>Ask the <span>Black Kids</span></h1></header>
+    <section id="live-form" hidden aria-label="Join live">
+      <label class="question-label" for="question">What's your relationship question?</label>
+      <p id="question-help">Write one clear question you can read when we bring you on. We'll ask for the details.</p>
+      <textarea id="question" rows="3" required aria-describedby="question-help" autocomplete="off"></textarea>
+      <label class="consent" for="consent">
+        <input id="consent" type="checkbox" autocomplete="off">
+        <span>I’m 18 or older and agree to appear live and be recorded for the podcast and social clips.</span>
+      </label>
+      <button id="join" type="button" disabled aria-describedby="status">Join Zoom</button>
+      <p id="status" role="status"></p>
+      <p class="instructions">Camera optional. Listen through Zoom only; mute the livestream.</p>
+      <p class="watch" hidden><a id="watch">Watch the live show</a></p>
+    </section>
+    <section id="offline">
+      <p class="intro">Got a relationship question? Send it to the podcast.</p>
+      <p id="next-event" hidden></p>
+    </section>
+    <footer><a id="submit" class="primary" href="https://onlyblackkids.com/pages/ask-obk">Submit your question to the podcast</a></footer>
+    <noscript><p class="instructions">JavaScript is needed to check live availability. You can still submit your question to the podcast.</p></noscript>
+  </main>
 </body>
 </html>

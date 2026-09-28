@@ -1,0 +1,25 @@
+:root { --bg: #F5EFE7; --text: #1A1A1A; --muted: #595959; --accent: #FF2E88; --soft: #FFE4EF; --ink-pink: #B80A53; }
+* { box-sizing: border-box; }
+body { margin: 0; min-height: 100svh; padding: 32px 22px; display: grid; place-items: center; background: var(--bg); color: var(--text); font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", sans-serif; }
+main { width: 100%; max-width: 440px; }
+a { color: inherit; text-underline-offset: 3px; }
+header { margin-bottom: 32px; }
+h1 { margin: 0; font-size: clamp(32px, 8.8vw, 42px); line-height: 1.08; letter-spacing: -1.4px; font-weight: 850; }
+h1 span { color: var(--ink-pink); white-space: nowrap; }
+[hidden] { display: none !important; }
+.intro { font-size: 19px; line-height: 1.5; }
+#next-event { color: var(--muted); font-size: 15px; line-height: 1.5; }
+.primary { display: block; padding: 16px 20px; border-radius: 999px; background: var(--accent); color: var(--text); text-decoration: none; font-size: 16px; line-height: 1.4; font-weight: 800; }
+.primary:hover { background: #FF5FA2; }
+.question-label { display: block; font-size: 18px; font-weight: 750; line-height: 1.35; }
+#question-help { font-size: 15px; line-height: 1.5; color: var(--muted); margin: 8px 0 12px; }
+textarea { display: block; width: 100%; min-height: 106px; resize: vertical; padding: 13px; border: 1px solid #A89E99; border-radius: 10px; background: #FFFCF8; color: var(--text); font: 16px/1.5 -apple-system, BlinkMacSystemFont, "Helvetica Neue", sans-serif; }
+.consent { display: flex; gap: 12px; align-items: flex-start; padding: 15px; margin-top: 18px; background: var(--soft); border-radius: 10px; font-size: 14px; line-height: 1.5; cursor: pointer; }
+input { flex: 0 0 22px; width: 22px; height: 22px; margin: 0; accent-color: var(--ink-pink); }
+button { width: 100%; min-height: 54px; margin-top: 18px; padding: 15px; border: 0; border-radius: 999px; background: var(--accent); color: var(--text); font: 800 16px/1.4 -apple-system, BlinkMacSystemFont, "Helvetica Neue", sans-serif; cursor: pointer; }
+button:disabled { background: #DDD5D0; color: #595959; cursor: not-allowed; }
+button:not(:disabled):hover { background: #FF5FA2; }
+:focus-visible { outline: 3px solid var(--ink-pink); outline-offset: 4px; }
+#status, .watch { font-size: 13px; line-height: 1.45; text-align: center; color: var(--muted); margin: 11px 0 0; }
+.instructions { font-size: 12px; color: var(--muted); line-height: 1.5; text-align: center; margin: 18px 8px 0; }
+footer { text-align: center; margin-top: 22px; color: var(--muted); font-size: 13px; }
