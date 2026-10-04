@@ -4,6 +4,6 @@
   "scheduledAt": "2026-10-03T20:00:00-04:00",
   "durationMinutes": 30,
   "opensAt": "2026-10-03T20:00:00-04:00",
-  "closesAt": "2026-10-03T20:30:00-04:00",
+  "closesAt": null,
   "watchUrl": ""
 }

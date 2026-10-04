@@ -9,7 +9,7 @@ catch { /* The question still works when browser storage is unavailable. */ }
 
 function currentZoom() {
   const now = Date.now();
-  if (event?.available !== true || !(Date.parse(event.opensAt) <= now && now < Date.parse(event.closesAt))) return '';
+  if (event?.available !== true || !(Date.parse(event.opensAt) <= now) || (event.closesAt !== null && !(now < Date.parse(event.closesAt)))) return '';
   try {
     const url = new URL(event.zoomUrl);
     if (url.protocol !== 'https:' || url.username || url.password || url.port) return '';

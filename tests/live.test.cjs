@@ -141,6 +141,7 @@ test('an open tab automatically closes when the confirmed event ends', async () 
 test('root, index and live alias use the approved entrance at all widths', async () => {
   require('node:fs').mkdirSync(__dirname + '/../artifacts', { recursive: true });
   await withPage(async (page, base) => {
+    await page.clock.install({ time: new Date('2026-10-03T19:00:00-04:00') });
     const errors = [];
     page.on('pageerror', error => errors.push(error.message));
     for (const route of ['/', '/index.html', '/live/']) {
@@ -257,10 +258,10 @@ test('actual configured event opens at 8 PM, not early, and closes at 8:30 PM Ea
     await page.clock.fastForward(1799000);
     assert.equal(await page.locator('#join').isEnabled(), true);
     await page.clock.fastForward(1000);
-    assert.equal(await page.locator('#join').isDisabled(), true);
-    assert.equal(await page.locator('#live-form').isVisible(), false);
-    assert.equal(await page.locator('#next-event').isVisible(), false);
-    assert.equal(await page.locator('#submit.primary').isVisible(), true);
+    assert.equal(await page.locator('#join').isEnabled(), true);
+    await page.clock.fastForward(7200000);
+    assert.equal(await page.locator('#live-form').isVisible(), true);
+    assert.equal(await page.locator('#join').isEnabled(), true);
   });
 });
 
